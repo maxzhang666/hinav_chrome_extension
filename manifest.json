@@ -1,0 +1,32 @@
+{
+   "action": {
+      "default_icon": "static/images/hinav_icon.png",
+      "default_popup": "index.html",
+      "default_title": "HiNav书签管理"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "commands": {
+      "_execute_browser_action": {
+         "description": "HiNav快捷键",
+         "suggested_key": {
+            "default": "Ctrl+Shift+F",
+            "mac": "MacCtrl+Shift+F"
+         }
+      }
+   },
+   "description": "基于Laravel开发的开源书签管理系统。",
+   "homepage_url": "https://nav.rss.ink/",
+   "icons": {
+      "128": "static/images/hinav_icon_128.png",
+      "16": "static/images/hinav_icon_16.png",
+      "48": "static/images/hinav_icon_48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApMHflQWrhe1vyZITG5A8PH0O9kFe7G8qrbzb9vImF+1o2aj9P6Clk15pvDZLhLwm7R/PELJaIAnRdl2Y5LtjsonWF2uDned2F5A8pIIdemgk+b85cu0RNMUhEZuU0OqKJC4r7+cGtU2bSCH0/MS8opfPtBPRavBc5Ey6Lam72e+McT2Vx+T7rfXx0lUXN0KSrvjxjQ7ciyuZr+pnLziYALe63r/lLioTk3q5lceOpTuw/DcQUJcT7aT3LYsBA8z6w/scs7H3ndnjs37saJ+wwUArNdXp8H0Whw+XSTyAOktJTzT32aBw7hhoSfXvuelRfcmnsg4k9KBazGMIRndcYwIDAQAB",
+   "manifest_version": 3,
+   "name": "HiNav",
+   "permissions": [ "contextMenus", "tabs", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.9.24"
+}

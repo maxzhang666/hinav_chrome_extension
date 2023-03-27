@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>适用于Chrome的HiNav扩展</title>
+		<link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="static/style.css"/>
+		<script src="static/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="static/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="static/js/holmes.js" type="text/javascript" charset="utf-8"></script>
+		<script src = "static/base.js"></script>
+	</head>
+	<body>
+		<div id="gotop">
+			<a href="javascript:;" title = "返回顶部">
+				<?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24.0083 14.1005V42" stroke="#2F88FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter"/><path d="M12 26L24 14L36 26" stroke="#2F88FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter"/><path d="M12 6H36" stroke="#2F88FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+			</a>
+		</div>
+		<div id="app">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12" id = "search">
+						<div class="input-group mb-3">
+						    <input type="text" class="form-control search" placeholder="请输入书签关键词">
+						    <i style = "right:0.8em;padding-top:5px;z-index:999;position: absolute;">
+								<?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M21 38C30.3888 38 38 30.3888 38 21C38 11.6112 30.3888 4 21 4C11.6112 4 4 11.6112 4 21C4 30.3888 11.6112 38 21 38Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M26.6568 14.3431C25.2091 12.8954 23.2091 12 21 12C18.7909 12 16.7909 12.8954 15.3431 14.3431" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33.2218 33.2218L41.7071 41.7071" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+							</i>
+						  </div>
+					</div>
+				</div>
+				<div class="row" id = "link_data">
+					<div class="col-md-12" id = "api_msg">
+						<h4>请先设置API！</h4>
+					</div>
+					<!-- <div class="col-md-6">
+						<div class="card bg-light text-dark">
+						    <div class="card-body">Light card</div>
+						</div>
+					</div>
+					-->
+				</div>
+				<!-- 占位符 -->
+				<div style="padding:2em;"></div>
+				<!-- 占位符END -->
+			</div>
+		</div>
+		<!-- 底部菜单 -->
+		<bottom-menu>
+			<div class="row">
+				<!-- <div class="col-2 bottom-setting">
+					<a href="javascript:;" class="text-success">
+					<p><?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M34 10V4H8V38L14 35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 44V10H40V44L27 37.7273L14 44Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/></svg></p>
+					<p>书签</p>
+					</a>
+				</div> -->
+				<div class="col-3 bottom-setting">
+					<a href="javascript:;" id="refresh_link_data" title="如果部分链接未能展示，请点此刷新！">
+					<p>
+						<?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42 8V24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 24L6 40" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 24C6 33.9411 14.0589 42 24 42C28.8556 42 33.2622 40.0774 36.5 36.9519" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M42.0007 24C42.0007 14.0589 33.9418 6 24.0007 6C18.9152 6 14.3223 8.10896 11.0488 11.5" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</p>
+					<p class="bottom-font-size">刷新数据</p>
+					</a>
+				</div>
+				<div class="col-3 bottom-setting">
+					<a href="javascript:;" id="on_add_link" title="点此添加链接，也可以通过右键菜单添加！">
+					<p><?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M24 16V32" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 24L32 24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+					<p class="bottom-font-size">添加链接</p>
+					</a>
+				</div>
+				<div class="col-3 bottom-setting">
+					<a href="javascript:;" id="setting" title="首次使用，请点此设置API！">
+					<p><?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M37 22.0001L34 25.0001L23 14.0001L26 11.0001C27.5 9.50002 33 7.00005 37 11.0001C41 15.0001 38.5 20.5 37 22.0001Z" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M42 6L37 11" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 25.9999L14 22.9999L25 33.9999L22 36.9999C20.5 38.5 15 41 11 36.9999C7 32.9999 9.5 27.5 11 25.9999Z" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 32L27 28" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 42L11 37" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 25L20 21" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+					<p class="bottom-font-size">API设置</p>
+					</a>
+				</div>
+				<div class="col-3 bottom-setting">
+					<a href="javascript:;" id="open_home" title="打开您的HiNav主页！">
+					<p><?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M9 18V42H39V18L24 6L9 18Z" fill="none"/><path d="M9 42V18L4 22L24 6L44 22L39 18V42H9Z" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 29V42H29V29H19Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M9 42H39" stroke="#333" stroke-width="4" stroke-linecap="round"/></svg></p>
+					<p class="bottom-font-size">打开主页</p>
+					</a>
+				</div><!-- <button type="button" class="btn btn-primary" id="setting">设置API</button> -->
+			</div>
+		</bottom-menu>
+		<!-- 底部菜单END -->
+	</body>
+	<!-- 设置表单 -->
+	<div id="setting_form" style="display: none;margin-top:1em;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="alert alert-warning">
+					  <strong>提示：</strong>请参考<a target = "_blank" href="https://dwz.ovh/tc1w3" title = "获取HiNav API">帮助文档</a>获取API信息！
+					</div>
+					  <div class="form-group">
+						<label for="email">HiNav地址:</label>
+						<input type="url" class="form-control" placeholder="请输入HiNav地址" id="api_url">
+					  </div>
+					  <div class="form-group">
+						<label for="pwd">Token:</label>
+						<input type="password" class="form-control" placeholder="请输入token" id="token">
+					  </div>
+					  <button type="submit" class="btn btn-primary" id = "save_api">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 设置表单END -->
+	<!-- 添加链接 -->
+	<div id="add_link_form">
+	<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="form-group">
+				<label for="email">网站地址：</label>
+				<input type="url" class="form-control" placeholder="https://www.xiaoz.me" id="url">
+			</div>
+			<div class="form-group">
+				<label for="pwd">网站标题:</label>
+				<input type="text" class="form-control" placeholder="网站标题" id="title">
+			</div>
+			<div class="form-group">
+			  <label for="sel1">所属分类: <button id = "refresh_category" title = "点此可以刷新分类数据" type="button" class="btn btn-primary btn-sm"><?xml version="1.0" encoding="UTF-8"?><svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42 8V24" stroke="#FFFFFF" stroke-width="4" stroke-linecap="square" stroke-linejoin="round"/><path d="M6 24L6 40" stroke="#FFFFFF" stroke-width="4" stroke-linecap="square" stroke-linejoin="round"/><path d="M6 24C6 33.9411 14.0589 42 24 42C28.8556 42 33.2622 40.0774 36.5 36.9519" stroke="#FFFFFF" stroke-width="4" stroke-linecap="square" stroke-linejoin="round"/><path d="M42.0007 24C42.0007 14.0589 33.9418 6 24.0007 6C18.9152 6 14.3223 8.10896 11.0488 11.5" stroke="#FFFFFF" stroke-width="4" stroke-linecap="square" stroke-linejoin="round"/></svg> 刷新数据</button></label>
+				<select class="form-control" id="fid">
+
+				</select>
+			</div>
+
+			<!-- 多行文本输入框 -->
+			<div class="form-group">
+				<label for="description">描述:</label>
+				<textarea class="form-control" id="description" rows = '2'></textarea>
+			</div>
+
+			<div class="radio">
+				<label><input type="radio" name="property" value="0" checked>公开</label>
+				<label><input type="radio" name="property" value="1">私有</label>
+			</div>
+
+			<button type="button" class="btn btn-primary" id = "add_link">添加</button>
+		</div>
+	</div>
+	</div>
+	</div>
+	<!-- 添加链接END -->
+	<script src="popup.js"></script>
+</html>

@@ -1,0 +1,113 @@
+body{
+	margin:0;
+	padding:0;
+	width: 400px;
+	height: 460px;
+	background: #f0f0f0;
+}
+#app{
+	margin-top:1em;
+	padding-bottom: 1em;
+}
+#app a{
+	text-decoration:none;
+}
+.link{
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	-o-text-overflow:ellipsis;
+}
+.link:hover{
+	box-shadow: 0px 0px 5px #888888;
+}
+.o-hidden{
+	display: none;
+}
+.hidden {
+	display: none;
+}
+bottom-menu{
+	width:100%;
+	position: fixed;
+	bottom:0;
+	text-align: center;
+	z-index: 9999;
+	background: #FFFFFF;
+	line-height: 14px;
+	/* padding:12px; */
+	padding-top:14px;
+	background: #e2e2e2;
+}
+
+.bottom-setting{
+	border-bottom: 3px solid #e2e2e2;
+}
+.bottom-setting a{
+	text-decoration: none;
+}
+.bottom-setting:hover {
+	border-bottom: 3px solid #5FB878;
+}
+#add_link_form{
+	display: none;
+}
+/* #setting_form {
+	background: #f0f0f0;
+	height: 100%;
+}
+#add_link_form{
+	background: #f0f0f0;
+} */
+
+
+/* 滚动条的宽度 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+/* 滚动条的背景颜色 */
+::-webkit-scrollbar-track {
+  background-color: #f2f2f2;
+}
+/* 滑块部分颜色 */
+::-webkit-scrollbar-thumb {
+  background-color: #5FB878;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+  -webkit-background-size: 40px 40px;
+  background-size: 40px 40px;
+}
+/* 纵横滚动条交错点颜色 */
+::-webkit-scrollbar-corner {
+  background-color: black;
+}
+#api_msg{
+	text-align: center;
+	padding-top:1em;
+	display: none;
+}
+
+/* 底部字体大小 */
+.bottom-font-size{
+	font-size: 14px;
+	color:#333;
+}
+#add_link_form {
+	margin-top: 1em;
+}
+#search{
+	position: fixed;
+	top:10px;
+	z-index: 999;
+}
+#link_data{
+	margin-top: 2.6em;
+}
+#gotop{
+	position: fixed;
+	bottom:6em;
+	right:0px;
+	z-index:99999;
+}
