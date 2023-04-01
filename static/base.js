@@ -215,9 +215,9 @@ $(document).ready(function () {
         let title = $("#title").val();
         let fid = $("#fid").val();
         let description = $("#description").val();
-        let property = $("input[type='radio']:checked").val();
+        // let property = $("input[type='radio']:checked").val();
 
-        $.post(api_add_link, {token: api_token, url: url, name: title, cat: fid, desc: description, property: property}, function (data, status) {
+        $.post(api_add_link, {token: api_token, url: url, name: title, cat: fid, desc: description}, function (data, status) {
             if (data.code != 0) {
                 layer.msg('链接已添加！', {icon: 1});
                 //链接添加完毕后刷新链接数据
@@ -234,7 +234,7 @@ $(document).ready(function () {
                     layer.closeAll();
                 }, 2000);
             } else {
-                layer.msg(data.err_msg, {icon: 5});
+                layer.msg(data.message, {icon: 5});
             }
         });
     });
