@@ -215,9 +215,17 @@ $(document).ready(function () {
         let title = $("#title").val();
         let fid = $("#fid").val();
         let description = $("#description").val();
+        let icon = $("#icon").val();
         // let property = $("input[type='radio']:checked").val();
 
-        $.post(api_add_link, {token: api_token, url: url, name: title, cat: fid, desc: description}, function (data, status) {
+        $.post(api_add_link, {
+            token: api_token,
+            url: url,
+            name: title,
+            cat: fid,
+            desc: description,
+            icon: icon
+        }, function (data, status) {
             if (data.code != 0) {
                 layer.msg('链接已添加！', {icon: 1});
                 //链接添加完毕后刷新链接数据
@@ -274,6 +282,15 @@ $(document).ready(function () {
     $("#gotop").click(function () {
         $("html,body").animate({scrollTop: '0px'}, 600);
     });
+    $('input[name="h5logincode"]').on('change', function () {
+        var _this = $(this);
+        if (_this.val().length > 0) {
+            $('#icon_view').attr('src', _this.val());
+        }
+    });
+    $("#icon").on('change', () => {
+        $('#icon_view').attr('src', $('#icon').val());
+    })
 });
 
 //请求API获取URL列表
