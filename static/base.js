@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //获取浏览器本地数据
     const api_url = localStorage.getItem('api_url');
-    const api_add_link = localStorage.getItem('api_url') + '/index.php?c=api&method=add_link';
+    const api_add_link = localStorage.getItem('api_url') + '/api/add_site';
     const api_category_list = localStorage.getItem('api_url') + '/api/menus';
     const api_link_list = localStorage.getItem('api_url') + '/index.php?c=api&method=link_list&page=1&limit=9999';
     const api_token = localStorage.getItem('token');
