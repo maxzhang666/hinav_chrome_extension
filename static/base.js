@@ -66,6 +66,8 @@ $(document).ready(function () {
             //重新请求API并缓存数据
             $.post(api_category_list, {token: api_token}, function (data, status) {
                 if (status == 'success') {
+                    if (data.code==1){
+
                     //渲染分类列表
                     for (i = 0; i < data.data.length; i++) {
                         $("#fid").append('<option value = "' + data.data[i].id + '">' + data.data[i].name + '</option>');
@@ -74,6 +76,9 @@ $(document).ready(function () {
                     data = JSON.stringify(data);
                     localStorage.setItem('category_list_data', data);
                     layer.msg('分类已刷新！', {icon: 1});
+                    }else{
+                        layer.msg(data.message,{icon:5})
+                    }
                 } else {
                     return false;
                 }
@@ -182,8 +187,8 @@ $(document).ready(function () {
 
         //如果token不合法
         if ((token !== '') && (token.length !== 32)) {
-            layer.msg('Token不合法！', {icon: 5});
-            return false;
+            // layer.msg('Token不合法！', {icon: 5});
+            // return false;
         }
 
         //保存数据
