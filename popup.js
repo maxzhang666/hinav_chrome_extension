@@ -1,12 +1,16 @@
 let title_mark = ['-', '|']
 chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
     let title = tabs[0].title;
+    let fid = localStorage.getItem('last_category');
+    if (fid) {
+        $("#fid").val(fid);
+    }
     $("#url").val(tabs[0].url);
     $("#title").val(title);
     //生成desc
     let desc = ''
     for (let i = 0; i < title_mark.length; i++) {
-        if (title.indexOf(title_mark[i]) == -1) {
+        if (title.indexOf(title_mark[i]) === -1) {
             continue;
         }
         let strs = title.split(title_mark[i])

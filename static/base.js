@@ -66,18 +66,18 @@ $(document).ready(function () {
             //重新请求API并缓存数据
             $.post(api_category_list, {token: api_token}, function (data, status) {
                 if (status == 'success') {
-                    if (data.code==1){
+                    if (data.code == 1) {
 
-                    //渲染分类列表
-                    for (i = 0; i < data.data.length; i++) {
-                        $("#fid").append('<option value = "' + data.data[i].id + '">' + data.data[i].name + '</option>');
-                    }
-                    //将分类列表缓存起来
-                    data = JSON.stringify(data);
-                    localStorage.setItem('category_list_data', data);
-                    layer.msg('分类已刷新！', {icon: 1});
-                    }else{
-                        layer.msg(data.message,{icon:5})
+                        //渲染分类列表
+                        for (i = 0; i < data.data.length; i++) {
+                            $("#fid").append('<option value = "' + data.data[i].id + '">' + data.data[i].name + '</option>');
+                        }
+                        //将分类列表缓存起来
+                        data = JSON.stringify(data);
+                        localStorage.setItem('category_list_data', data);
+                        layer.msg('分类已刷新！', {icon: 1});
+                    } else {
+                        layer.msg(data.message, {icon: 5})
                     }
                 } else {
                     return false;
@@ -238,6 +238,7 @@ $(document).ready(function () {
                 $("#link_data").empty();
                 //删除本地数据
                 localStorage.removeItem('link_data');
+                localStorage.setItem('last_category', fid);
                 //通过API重新获取数据
                 get_link_data();
                 setTimeout(function () {
